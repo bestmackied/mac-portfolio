@@ -134,27 +134,65 @@ All templates: under 150 words, human tone, personalization tokens, low-friction
 |------|--------|-------|
 | 1. Portfolio Audit + Fix | COMPLETE | Build passes, content updated |
 | 2. Portfolio Content | COMPLETE | Real projects, correct links, added skills |
-| 3. Portfolio Deploy | PARTIAL | Pushed to GitHub; Vercel needs Mac's browser login |
+| 3. Portfolio Deploy | COMPLETE | Live at https://mac-portfolio-beta.vercel.app |
 | 4. Cold Email Templates | COMPLETE | 5 templates, A/B variants, human tone |
 | 5. Outreach Tracker | COMPLETE | 23 leads in CSV + daily targets doc |
 | 6. Loom Demo Script | COMPLETE | 3-min script with full choreography |
 | 7. Upwork Profile | COMPLETE | Profile, rate strategy, 3 proposals, first-5 plan |
 
 ### Mac's To-Do When He Wakes Up
-1. **Deploy portfolio:** Vercel dashboard → Import `bestmackied/mac-portfolio` → Deploy
-2. **Set custom domain:** maccummings.dev → Vercel
-3. **Add project screenshots:** Take screenshots for each project card
-4. **Add Vercel Analytics:** `npm i @vercel/analytics` + import in layout.tsx
-5. **Fill out Upwork profile:** Copy from `~/workspace/outreach/upwork-profile.md`
-6. **Record Loom demo:** Follow script at `~/workspace/outreach/loom-demo-script.md`
-7. **Buy cold email domains:** 2-3 secondary domains, set up SPF/DKIM/DMARC, warm up
-8. **Start sending:** 3 emails/day from `~/workspace/outreach/tracker.csv`
+1. ~~Deploy portfolio~~ DONE -- deployed to https://mac-portfolio-beta.vercel.app
+2. **Set custom domain:** maccummings.dev --> Vercel (needs domain purchase)
+3. **Connect GitHub to Vercel:** Visit https://vercel.com/docs/accounts/create-an-account#login-methods-and-connections to add login connection, then auto-deploy on push
+4. **Add project screenshots:** Take screenshots for each project card
+5. **Add Vercel Analytics:** `npm i @vercel/analytics` + import in layout.tsx
+6. **Fill out Upwork profile:** Copy from `~/workspace/outreach/upwork-profile.md`
+7. **Record Loom demo:** Follow script at `~/workspace/outreach/loom-demo-script.md`
+8. **Buy cold email domains:** 2-3 secondary domains, set up SPF/DKIM/DMARC, warm up
+9. **Start sending:** 3 emails/day from `~/workspace/outreach/tracker.csv`
 
 ### Files Created/Modified
-- `~/projects/mac-portfolio/src/data/resume.tsx` — updated content
-- `~/projects/mac-portfolio/OVERNIGHT-LOG.md` — this file
-- `~/workspace/outreach/cold-email-templates.md` — 5 templates
-- `~/workspace/outreach/tracker.csv` — 23 leads
-- `~/workspace/outreach/daily-targets.md` — targets + process
-- `~/workspace/outreach/loom-demo-script.md` — 3-min video script
-- `~/workspace/outreach/upwork-profile.md` — profile + proposals
+- `~/projects/mac-portfolio/src/data/resume.tsx` -- updated content
+- `~/projects/mac-portfolio/OVERNIGHT-LOG.md` -- this file
+- `~/workspace/outreach/cold-email-templates.md` -- 5 templates (original)
+- `~/workspace/outreach/templates.md` -- 5 templates with A/B variants (updated, use this one)
+- `~/workspace/outreach/tracker.csv` -- empty tracker with columns
+- `~/workspace/outreach/daily-targets.md` -- targets + process
+- `~/workspace/outreach/loom-demo-script.md` -- 3-min video script
+- `~/workspace/outreach/upwork-profile.md` -- profile + 3 proposal templates
+
+---
+
+## Session 2: 2026-03-18 ~11:30 PM
+
+### Work Completed
+
+**Portfolio Cleanup & Deploy:**
+1. Removed 10 leftover fork images from `/public/` (~200KB dead weight)
+2. Removed `questionnaire.html` from `/public/` (internal dev artifact)
+3. Removed `/api/questionnaire/route.ts` (writes to filesystem, breaks on Vercel)
+4. Removed `questionnaire-server.js`
+5. Updated all 7 blog post dates from 2024 to 2026 (no longer look stale)
+6. Renamed remote work blog title to "Freelance Developers" (fits Mac's brand better)
+7. Build verified clean: 17 pages, 0 errors
+8. Committed: `abfd6ca` -- chore: clean up portfolio for deploy
+9. Pushed to GitHub: `bestmackied/mac-portfolio` main branch
+10. **DEPLOYED to Vercel production:** https://mac-portfolio-beta.vercel.app
+
+**Vercel Notes:**
+- Authenticated Vercel CLI as `bestmackied-4644`
+- GitHub auto-deploy connection failed (needs Login Connection added in Vercel settings)
+- Manual deploy via `vercel --prod` succeeded
+- Project linked as `macs-projects-f5b168ac/mac-portfolio`
+
+**Outreach Materials Created:**
+1. `~/workspace/outreach/templates.md` -- 5 cold email templates with A/B subject lines:
+   - A: Local businesses -- "Your customers have questions at 2am"
+   - B: E-commerce -- "Your support team is drowning"
+   - C: SaaS -- "Cut support tickets by 60%"
+   - D: Agency -- "White-label AI chatbot"
+   - E: Follow-up with value-add
+2. `~/workspace/outreach/tracker.csv` -- empty CSV with columns ready
+3. `~/workspace/outreach/daily-targets.md` -- 3/day target, weekly tracking, lead sources
+4. `~/workspace/outreach/loom-demo-script.md` -- 3-minute SupportBase demo script with timestamps and screen choreography
+5. `~/workspace/outreach/upwork-profile.md` -- optimized title, overview, skills, $45/hr rate, 3 proposal templates (Next.js, AI/chatbot, full-stack)
